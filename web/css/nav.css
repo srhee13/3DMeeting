@@ -1,0 +1,176 @@
+@charset "utf-8";
+
+/* nav */
+
+.nav {
+    width: 230px;
+    height: 100%;
+    background: white;
+    background: rgba(255, 255, 255, .8);
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    display: inline-block;
+}
+
+.nav a {
+    display: block;
+    overflow: hidden;
+    padding-left: 17px;
+    line-height: 55px;
+    max-height: 55px;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    font-size: 18px;
+    color: #616161;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    border-color: #bfd4e9;
+}
+
+.nav a span {
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item.nav-show {
+    border-bottom: none;
+}
+
+.nav-item ul {
+    display: none;
+}
+
+.nav-item.nav-show ul {
+    display: block;
+}
+
+.nav .nav-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    vertical-align: middle;
+}
+
+
+/* 此处修改导航图标 */
+
+.nav .icon_1 {
+    background-image: url(../images/icon-1.png);
+}
+
+.nav .icon_2 {
+    background-image: url(../images/icon-2.png);
+}
+
+
+/*---------------------*/
+
+.nav-more {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 15px;
+    height: 15px;
+    background: url(../images/white-right-icon.png) no-repeat center center;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.nav-show .nav-more{
+    background: url(../images/white-bottom-icon.png) no-repeat center center\9;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+/*---------------------*/
+
+.nav-show,
+.nav-item>a:hover {
+    color: #FFF;
+}
+.nav-item > a:hover{
+    opacity: .7;
+}
+
+.nav-show>a:before,
+.nav-item>a:hover:before {
+    opacity: 1;
+}
+
+.nav-item li:hover a,
+.nav-item li a.active{
+    background: #f4f4f4;
+}
+
+.nav-item ul li{
+    border-bottom: 1px solid #edeff2;
+}
+
+.nav-item ul a{
+    font-size: 14px;
+    border: none;
+    line-height: 2;
+    padding: 4px 0;
+}
+.nav-item ul a span{
+    margin-left: 65px;
+}
+
+
+/* nav-mini */
+
+.nav-mini.nav {
+    width: 60px;
+}
+
+.nav-mini.nav .nav-icon {
+    /* margin-left:-2px; */
+}
+
+.nav-mini.nav .nav-item>a span {
+    display: none;
+}
+
+.nav-mini.nav .nav-more {
+    display: none;
+}
+
+.nav-mini.nav .nav-item ul {
+    position: absolute;
+    top: 0px;
+    left: 60px;
+    width: 180px;
+    z-index: 99;
+    background: #cecece;
+    background: rgba(255, 255, 255, .8);
+    overflow: hidden;
+}
+
+.nav-mini.nav .nav-item:hover {
+    background: rgba(255, 255, 255, .1);
+}
+
+.nav-mini.nav .nav-item:hover .nav-item a {
+    color: #FFF;
+}
+
+.nav-mini.nav .nav-item:hover a:before {
+    opacity: 1;
+}
+.nav-mini.nav .nav-item ul a{
+    text-align: center;
+    padding: 0;
+}
+.nav-mini.nav .nav-item ul a span{
+    margin-left: 0;
+}
+
+.nav-mini.nav .nav-item:hover ul {
+    display: block;
+}

@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>会审三维技术平台</title>
+	
+    <link rel="stylesheet" type="text/css" href="css/normal.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/meet.css">
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/PIE_IE678.js"></script>
+    <![endif]-->
+    <style>
+        body{
+            overflow: hidden;
+        }
+    </style>
+	
+</head>
+<body>
+    <div class="main-page-content meet-show">
+        <div class="main">
+            <div class="top">
+                <div class="item">会议演示<span></span></div>
+                <h1 class="title">会议列表</h1>
+                <img src="images/top-3.png" alt="" class="top-right">
+            </div>
+            <div class="main-content">
+                <iframe src="meet-list.html" frameborder="0" scrolling="no" allowTransparency="true" name="main-frame" id="main" style="overflow-x:hidden;width:100%;height:100%;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        if (window.PIE) {
+            $('.main .top').each(function() {
+                PIE.attach(this);
+            });
+        }
+        $(function(){
+            setHeight();
+
+            $('.add-item .item').on('click', function(){
+                var index = $(this).index();
+                $(this).addClass('active').siblings().removeClass('active');
+                if(index === 0){
+                    $('#main').attr('src', 'add-meetting.html');
+                }
+            });
+        });
+        window.onresize = function(){
+            setHeight();
+        }
+        function setHeight(){
+            $('.main-content').height($(window).height() - 82);
+        }
+    </script>
+
+</body>
+</html>

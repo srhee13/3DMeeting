@@ -1,0 +1,166 @@
+
+.main-page-content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    background: #edf1f5;
+}
+.nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.nav-top{
+    text-align: center;
+    font-size: 0;
+    padding: 26px 0;
+    background: #dfe8fa;
+}
+.nav-top h1{
+    text-align: center;
+    font-size: 24px;
+    color: #5a9a87;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.nav-mini h1{
+    font-size: 14px;
+}
+.nav a.first{
+    background: #15b285;
+    color: #fff;
+}
+
+.nav .change{
+    position: absolute;
+    top: 15px;
+    right: -52px;
+    width: 52px;
+    height: 48px;
+    background: url(../images/mini-btn.png) no-repeat;
+}
+.nav .change span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -9px;
+    width: 18px;
+    height: 1px;
+    background-color: rgba(0, 35, 135, .8);
+}
+
+.main{
+    padding-left: 230px;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    font-size: 12px;
+    -webkit-transition: all .3s;
+    transition: all .3s
+}
+.nav-mini + .main{
+    padding-left: 60px;
+}
+
+.main .top{
+    width: 100%;
+    height: 82px;
+    background: #15b285;
+    font-size: 0;
+    line-height: 82px;
+    position: relative;
+    -webkit-box-shadow: 0px 3px 5px rgba(160, 160, 160, .5);
+            box-shadow: 0px 3px 5px rgba(160, 160, 160, .5);
+}
+.main .top .logo{
+    margin-top: 17px;
+    margin-left: 67px;
+    float: left;
+}
+.top .add-item{
+    float: left;
+    padding-left: 30px;
+}
+.top .add-item .item{
+    float: left;
+    height: 82px;
+    padding: 9px 15px 0;
+    text-align: center;
+    cursor: pointer;
+}
+.top .add-item .item:hover,
+.top .add-item .item.active{
+    background: #36bd96;
+}
+.top .add-item .item img{
+    display: block;
+    margin: 0 auto;
+    width: 46px;
+}
+.top .add-item .item p{
+    color: #fff;
+    font-size: 14px;
+    line-height: 1;
+    margin-top: 5px;
+}
+.top .top-right{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.meet-edit .nav-top h1{
+    color: #744bc9;
+}
+.meet-edit .top .add-item .item:hover,
+.meet-edit .top .add-item .item.active{
+    background: #9989e0;
+}
+.meet-edit .main .top,
+.meet-edit .nav a.first{
+    background: #8876db;
+}
+.meet-edit .nav .change{
+    background: url(../images/mini-btn-2.png) no-repeat center;
+    right: -51px;
+}
+
+.meet-show .main{
+    padding-left: 0;
+}
+.meet-show .main .top{
+    background: #507fe1;
+}
+.meet-show .top .item{
+    text-align: center;
+    font-size: 24px;
+    padding: 29px 0;
+    background: #dfe8fa;
+    position: relative;
+    width: 234px;
+    line-height: 1;
+    color: #003399;
+    font-weight: bold;
+    display: inline-block;
+}
+.meet-show .top .item span{
+    position: absolute;
+    width: 51px;
+    height: 48px;
+    background: url(../images/mini-btn-3.png) no-repeat center;
+    right: -51px;
+    top: 50%;
+    margin-top: -24px;
+    vertical-align: top;
+}
+.meet-show .top .title{
+    font-size: 30px;
+    color: white;
+    display: inline-block;
+    margin-left: 80px;
+    font-weight: normal;
+    vertical-align: top;
+}

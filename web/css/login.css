@@ -1,0 +1,133 @@
+
+body{
+    background: #e6e7e7;
+}
+
+.login-content{
+    position: relative;
+    height: 100%;
+}
+.login-content .item-1{
+    width: 100%;
+    height: 58%;
+    background: #507fe1;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, .3);
+    position: relative;
+    z-index: 5;
+}
+.login-content .item-2{
+    width: 100%;
+    height: 42%;
+    background: url(../images/login-bg.jpg) no-repeat right;
+}
+
+.login-main-content{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.login{
+    font-size: 0;
+    margin: 0 auto;
+    color: #fff;
+}
+.login h1{
+    font-size: 36px;
+    color: #fff;
+    text-align: center;
+}
+.login .items{
+    padding-top: 2%;
+}
+.login .item{
+    display: inline-block;
+    width: 22%;
+    position: relative;
+}
+.login .item img{
+    width: 100%;
+}
+.login .item a{
+    position: absolute;
+    left: 8.2%;
+    bottom: 5.85%;
+    font-size: 14px;
+    color: #666;
+}
+.login .item a span{
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    vertical-align: middle;
+    border-radius: 50%;
+    margin-left: 10px;
+    position: relative;
+}
+.login .item a.t1 span{
+    background: #5a9a87 url(../images/go-icon.png) no-repeat center;
+}
+.login .item a.t2 span{
+    background: #cc99cc url(../images/go-icon.png) no-repeat center;
+}
+.login .item a.t3 span{
+    background: #507fe1 url(../images/go-icon.png) no-repeat center;
+}
+.login .item a.t2,
+.login .item a.t3{
+    left: 12%;
+}
+.login .inputs{
+    padding-top: 4%;
+}
+.login .inputs .item{
+    display: inline-block;
+    width: 235px;
+    height: 55px;
+    text-align: left;
+    padding-right: 8px;
+    padding-left: 42px;
+}
+.login .inputs .item .input{
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    overflow: hidden;
+    display: inline-block;
+}
+.login .inputs .item input{
+    border: none;
+    padding: 0 3px;
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+}
+
+.login .inputs .login-btn{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #507fe1;
+    display: inline-block;
+    vertical-align: -3px;
+    margin-left: 10px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 42px;
+    cursor: pointer;
+    vertical-align: top;
+    margin-top: 4px;
+}
+
+.copyright{
+    position: fixed;
+    margin-bottom: 2%;
+    font-size: 12px;
+    color: #7d7d7d;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}

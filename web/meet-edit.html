@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>会审三维技术平台</title>
+	
+    <link rel="stylesheet" type="text/css" href="css/normal.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/meet.css">
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/PIE_IE678.js"></script>
+    <![endif]-->
+    <style>
+        body{
+            overflow: hidden;
+        }
+    </style>
+	
+</head>
+<body>
+    <div class="main-page-content meet-edit">
+        <div class="nav">
+            <div class="nav-top">
+                <h1>会议编辑</h1>
+            </div>
+            <div class="change" id="mini"></div>
+            <ul>
+                <li class="nav-item">
+                    <a href="javascript:;" class="first" id="first">
+                        <i class="my-icon nav-icon icon_1"></i>
+                        <span>会议名称1</span>
+                        <i class="my-icon nav-more"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="yiti-2.html" target="main-frame"><span>主题1</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><span>主题2</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><span>主题3</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><span>主题4</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><span>+新建子议题</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:;" class="first">
+                        <i class="my-icon nav-icon icon_2"></i>
+                        <span>会议名称2</span>
+                        <i class="my-icon nav-more"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="" target="main-frame"><span>议题1</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><span>议题2</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><span>议题3</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><span>议题4</span></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="top">
+                <img src="images/setting-icon-2.png" alt="" class="logo">
+                <div class="add-item">
+                    <div class="item active">
+                        <img src="images/add-icon.png" alt="">
+                        <p>新建会议</p>
+                    </div>
+                    <div class="item">
+                        <img src="images/meet-show-icon.png" alt="">
+                        <p>开始演示</p>
+                    </div>
+                </div>
+                <img src="images/top-2.png" alt="" class="top-right">
+            </div>
+            <div class="main-content">
+                <iframe src="add-meetting.html" frameborder="0" scrolling="no" allowTransparency="true" name="main-frame" id="main" style="overflow-x:hidden;width:100%;height:100%;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/nav.js"></script>
+    <script>
+        if (window.PIE) {
+            $('.main .top').each(function() {
+                PIE.attach(this);
+            });
+        }
+        $(function(){
+            setHeight();
+
+            $('.add-item .item').on('click', function(){
+                var index = $(this).index();
+                $(this).addClass('active').siblings().removeClass('active');
+                if(index === 0){
+                    $('#main').attr('src', 'add-meetting.html');
+                }
+            });
+        });
+        window.onresize = function(){
+            setHeight();
+        }
+        function setHeight(){
+            $('.main-content').height($(window).height() - 82);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width">
+
+    <title>会审三维技术平台</title>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-select.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrapValidator.css"/>
+    <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap-datetimepicker.min.css" />
+
+    <link type="text/css" rel="stylesheet" href="css/normal.css" />
+    <link type="text/css" rel="stylesheet" href="css/add.css" />
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/PIE_IE678.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    
+    <div class="add-zt-content">
+        <form id="defaultForm" method="post" class="form-horizontal" action="">
+            <div class="title">新建会议</div>
+            <div class="need-items" style="padding: 15px 0 5px;">
+                <div class="form-group">
+                    <label class="meet-label text-right">选择主题模板：</label>
+                    <div class="meet-item">
+                        <div class="select">
+                            <select class="selectpicker">
+                                <option>主题1</option>
+                                <option>主题2</option>
+                                <option>主题3</option>
+                                <option>主题4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label class="meet-label text-right">会议名称：</label>
+                        <div class="meet-item">
+                            <input type="text" class="form-control" placeholder="请输入" name="name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="meet-label text-right">会议时间：</label>
+                        <div class="meet-item">
+                            <input type="text" class="form-control meet-date" placeholder="请选择日期" id="startTime" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="meet-label text-right">用地介绍：</label>
+                    <div class="meet-item">
+                        <textarea rows="3" cols="20" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="meet-label text-right">相关内容：</label>
+                    <div class="meet-item">
+                        <textarea rows="3" cols="20" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="title">增加议题</div>
+            <div class="other-items">
+                <div class="form-group">
+                    <label class="meet-label text-right">选择议题模板：</label>
+                    <div class="meet-item">
+                        <div class="select">
+                            <select class="selectpicker">
+                                <option>议题1</option>
+                                <option>议题2</option>
+                                <option>议题3</option>
+                                <option>议题4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="meet-label text-right">议题名称：</label>
+                    <div class="meet-item">
+                        <input type="text" class="form-control" placeholder="请输入">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="meet-label text-right">相关内容：</label>
+                    <div class="meet-item">
+                        <textarea rows="3" cols="20" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="btns">
+                <span class="save" id="save-btn">
+                    <img src="images/save-icon.png" alt="">
+                    <i>保 存</i>
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/placeholders.js"></script>
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="layer/layer.js"></script>
+    <script>
+
+        $('.selectpicker').selectpicker({
+            size: 5
+        });
+
+        if (window.PIE) {
+            $('.add-zt-content, .bootstrap-select .btn, .btns .save, .form-control').each(function() {
+                PIE.attach(this);
+            });
+        }
+        
+        $(function(){
+            $('input, textarea').placeholder();
+
+            $("#startTime").datetimepicker({
+                language: 'zh-CN',
+                format: 'yyyy-mm-dd hh:ii'
+            });
+
+            $('#save-btn').on('click', function(){
+                var validate = $('#defaultForm').bootstrapValidator('validate');
+                if(validate.data('bootstrapValidator').isValid()){
+                   //表单提交的方法、比如ajax提交
+                }
+                
+                layer.alert('数据保存成功。',{
+                    btn: []
+                });
+                $(this).addClass('disabled').off('click');
+            });
+
+        });
+
+        $('#defaultForm').bootstrapValidator({
+            message: 'This value is not valid',
+            excluded: [':disabled', ':hidden', ':not(:visible)'],
+            //submitButtons: 'span#save-btn',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                username: {
+                    message: 'The username is not valid',
+                    validators: {
+                        notEmpty: {
+                            message: 'The username is required and can\'t be empty'
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 30,
+                            message: 'The username must be more than 6 and less than 30 characters long'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: 'The username can only consist of alphabetical, number, dot and underscore'
+                        }
+                    }
+                },
+                name: {
+                    validators: {
+                        notEmpty: {
+                            message: 'You have to accept the terms and policies'
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

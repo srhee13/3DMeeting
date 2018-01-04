@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>会审三维技术平台</title>
+
+    <link type="text/css" rel="stylesheet" href="css/normal.css" />
+    <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap-datetimepicker.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/add.css" />
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/PIE_IE678.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    
+    <div class="add-zt-content">
+        <div class="title">固定栏目</div>
+        <div class="need-items">
+            <div class="item">
+                <p>会议名称</p>
+                <div class="input">
+                    <input type="text" placeholder="输入会议名称">
+                </div>
+            </div>
+            <div class="item">
+                <p>会议时间</p>
+                <div class="input">
+                    <input type="text" placeholder="请选择日期" id="startTime" readonly>
+                </div>
+            </div>
+            <div class="item">
+                <p>用地介绍</p>
+                <div class="input">
+                    <input type="text" placeholder="输入相关内容">
+                </div>
+            </div>
+        </div>
+        <div class="title">选填栏目</div>
+        <div class="other-items">
+            <div class="items pr">
+                <div class="box">
+                    <input type="checkbox" name="" class="check">
+                    <div class="item">
+                        <p>参会人员</p>
+                        <div class="input">
+                            <input type="text" placeholder="输入部门名称">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="items">
+                <div class="box">
+                    <input type="checkbox" name="" class="check">
+                    <div class="item">
+                        <p>参会人员</p>
+                        <div class="input">
+                            <input type="text" placeholder="输入部门名称">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="items pr">
+                <div class="box">
+                    <input type="checkbox" name="" class="check">
+                    <div class="item">
+                        <p>参会人员</p>
+                        <div class="input">
+                            <input type="text" placeholder="输入部门名称">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="items">
+                <div class="box">
+                    <input type="checkbox" name="" class="check">
+                    <div class="item">
+                        <p>参会人员</p>
+                        <div class="input">
+                            <input type="text" placeholder="输入部门名称">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="items pr">
+                <div class="box bbno">
+                    <input type="checkbox" name="" class="check">
+                    <div class="item">
+                        <p>参会人员</p>
+                        <div class="input">
+                            <input type="text" placeholder="输入部门名称">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="items">
+                <div class="box bbno">
+                    <input type="checkbox" name="" class="check">
+                    <div class="item">
+                        <p>参会人员</p>
+                        <div class="input">
+                            <input type="text" placeholder="输入部门名称">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btns">
+            <span class="save" onclick="save(this)">
+                <img src="images/save-icon.png" alt="">
+                <i>保 存</i>
+            </span>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/placeholders.js"></script>
+    <script type="text/javascript" src="layer/layer.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.zh-CN.js"></script>
+
+    <script>
+
+        if (window.PIE) {
+            $('.add-zt-content, .btns .save').each(function() {
+                PIE.attach(this);
+            });
+        }
+        
+        function save(ele){
+            layer.alert('数据保存成功。',{
+                btn: []
+            });
+            $(ele).addClass('disabled').off('click');
+        }
+
+        $(function(){
+            $('input, textarea').placeholder();
+
+            $("#startTime").datetimepicker({
+                language: 'zh-CN',
+                format: 'yyyy-mm-dd hh:ii'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

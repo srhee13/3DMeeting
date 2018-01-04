@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>会审三维技术平台</title>
+
+    <link type="text/css" rel="stylesheet" href="css/normal.css" />
+    <link type="text/css" rel="stylesheet" href="css/zTreeStyle.css" />
+    <link type="text/css" rel="stylesheet" href="css/ztree.css" />
+    <link type="text/css" rel="stylesheet" href="css/list.css" />
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/PIE_IE678.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    
+    <div class="meet-project-map">
+        <div class="project-tree">
+            <h3>图层控制</h3>
+            <ul id="tree" class="ztree"></ul>
+        </div>
+        <div class="map-content">
+            <div class="content">
+                <img src="images/test/map.gif" alt="" style="width: 100%; height: 100%;">
+            </div>
+        </div>
+        <div class="project-intro">
+            <div class="tabs-head-items">
+                <span class="active" style="margin-left: 0;"><img src="images/project-map-icon-1.png" alt=""></span>
+                <span><img src="images/project-map-icon-2.png" alt=""></span>
+                <span><img src="images/project-map-icon-3.png" alt=""></span>
+                <span><img src="images/project-map-icon-4.png" alt=""></span>
+                <span><img src="images/project-map-icon-5.png" alt=""></span>
+            </div>
+            <div class="tabs-body-items">
+                <div class="content">
+                    <div class="items" style="display: block;">
+                        <p style="font-size: 22px;">申请用地情况</p>
+                        <p>本次拟申请市政府审议的建设项目共39项，其中有6项为非建设性用地（绿地广场），其余33项为供地项目，总用地面积为102.9公顷。</p>
+                    </div>
+                    <div class="items"></div>
+                    <div class="items"></div>
+                    <div class="items"></div>
+                    <div class="items"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/placeholders.js"></script>
+    <script type="text/javascript" src="js/jquery.ztree.core-3.5.js"></script>
+    <script>
+        if (window.PIE) {
+            $('.meet-project-map, .map-content .content, .tabs-body-items, .tabs-body-items .content, .tabs-head-items span').each(function() {
+                PIE.attach(this);
+            });
+        }
+
+        var setting = {
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            callback: {
+                beforeClick: function(treeId, treeNode) {
+                    var zTree = $.fn.zTree.getZTreeObj("tree");
+                    if (treeNode.isParent) {
+                        zTree.expandNode(treeNode);
+                        return false;
+                    } else {
+                        console.log(treeNode.file);
+                        return true;
+                    }
+                }
+            }
+        };
+
+        var zNodes = [{
+            id: 1,
+            pId: 0,
+            name: "南山区",
+            open: true,
+            iconOpen: "images/ztree/tree-node-icon.png",
+            iconClose: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 2,
+            pId: 0,
+            name: "福田区",
+            iconOpen: "images/ztree/tree-node-icon.png",
+            iconClose: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 21,
+            pId: 2,
+            name: "叶子节点",
+            iconOpen: "images/ztree/tree-node-icon.png",
+            iconClose: "images/ztree/tree-node-icon.png",
+        }, {
+            id: 211,
+            pId: 21,
+            name: "叶子节点",
+            icon: "images/ztree/tree-node-icon.png",
+            file: ''
+        }, {
+            id: 212,
+            pId: 21,
+            name: "叶子节点",
+            icon: "images/ztree/tree-node-icon.png",
+            file: ''
+        }, {
+            id: 31,
+            pId: 2,
+            name: "叶子节点",
+            iconOpen: "images/ztree/tree-node-icon.png",
+            iconClose: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 311,
+            pId: 31,
+            name: "叶子节点",
+            icon: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 312,
+            pId: 31,
+            name: "叶子节点",
+            icon: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 4,
+            pId: 0,
+            name: "龙岗区",
+            iconOpen: "images/ztree/tree-node-icon.png",
+            iconClose: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 41,
+            pId: 4,
+            name: "叶子节点",
+            iconOpen: "images/ztree/tree-node-icon.png",
+            iconClose: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 411,
+            pId: 41,
+            name: "叶子节点",
+            icon: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 412,
+            pId: 41,
+            name: "叶子节点",
+            icon: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 42,
+            pId: 4,
+            name: "叶子节点",
+            iconOpen: "images/ztree/tree-node-icon.png",
+            iconClose: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 421,
+            pId: 42,
+            name: "叶子节点",
+            icon: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 422,
+            pId: 42,
+            name: "叶子节点",
+            icon: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 11,
+            pId: 1,
+            name: "叶子节点1",
+            icon: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 12,
+            pId: 1,
+            name: "叶子节点2",
+            icon: "images/ztree/tree-node-icon.png"
+        }, {
+            id: 13,
+            pId: 1,
+            name: "叶子节点3",
+            icon: "images/ztree/tree-node-icon.png"
+        }];
+
+        $(function(){
+            //$('input, textarea').placeholder();
+
+            $.fn.zTree.init($("#tree"), setting, zNodes);
+
+            $('.tabs-head-items span').on('click', function(){
+                var index = $(this).index();
+                if (window.PIE) {
+                    index = (index - 1) / 2;
+                }
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.tabs-body-items .items').eq(index).show().siblings().hide();
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

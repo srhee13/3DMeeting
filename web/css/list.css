@@ -1,0 +1,284 @@
+
+body{
+    padding: 25px 33px;
+    background: transparent;
+}
+
+.meet-list-content{
+    min-height: 100%;
+    background: white;
+    border-radius: 5px;
+    padding: 4px 58px 20px 7px;
+    margin-bottom: 25px\9;
+}
+
+.meet-list-content .list-items{
+    font-size: 0;
+    margin-top: 30px;
+}
+.list-items .item{
+    display: inline-block;
+    width: 25%;
+    padding-left: 3.37%;
+    vertical-align: top;
+}
+.list-items .item .project{
+    width: 100%;
+    max-width: 315px;
+}
+.list-items .item .project .imgs{
+    background-color: white;
+    width: 100%;
+    padding: 3.8% 9.5% 5.4%;
+    -webkit-box-shadow: 0px 0px 5px rgba(200, 200, 200, .8);
+    box-shadow: 0px 0px 5px rgba(200, 200, 200, .8);
+    position: relative;
+    z-index: 50;
+    border: 1px solid #efefef;
+}
+.list-items .item .project .imgs .t1{
+    position: relative;
+    width: 100%;
+    padding-top: 68.21%;
+    display: block;
+}
+.list-items .item .project .imgs img{
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.list-items .item .project .name{
+    padding: 12px 0;
+    position: relative;
+    padding-right: 60px;
+}
+.list-items .item .project .name .t2{
+    display: inline-block;
+    width: 100%;
+    color: #003399;
+    font-size: 18px;
+    padding-left: 30px;
+    overflow: hidden;
+    height: 24px;
+    line-height: 24px;
+    background: url(../images/icon-1-blue.png) no-repeat left center;
+}
+.list-items .item .project .list-btn{
+    position: absolute;
+    width: 59px;
+    height: 22px;
+    right: 0;
+    top: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+}
+.list-items .item .project .list-btn.show{
+    background: url(../images/download-bg.png) no-repeat center;
+}
+.list-items .item .project ul{
+    padding: 0 30px;
+    width: 100%;
+    color: #616161;
+    font-size: 14px;
+}
+.list-items .item .project li{
+    position: relative;
+    padding: 3px 8px;
+}
+.list-items .item .project li span{
+    padding: 5px 0;
+    line-height: 1;
+}
+.list-items .item .project li i{
+    position: absolute;
+    width: 5px;
+    height: 1px;
+    background: #616161;
+    left: 0px;
+    top: 50%;
+    margin-top: -1px;
+}
+
+.meet-project-map{
+    padding: 20px;
+    height: 100%;
+    background: white;
+    border-radius: 5px;
+    font-size: 0;
+}
+.meet-project-map .project-tree,
+.meet-project-map .map-content,
+.meet-project-map .project-intro,
+.project-list .list-content{
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+}
+.meet-project-map .project-tree{
+    width: 17%;
+    padding-right: 10px;
+    border-right: 1px dotted #666;
+}
+.project-tree h3{
+    background-color: #9bb6ee;
+    padding: 2px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.meet-project-map .map-content{
+    width: 57%;
+    padding: 0 10px;
+}
+.meet-project-map .map-content .content{
+    height: 100%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.meet-project-map .project-intro{
+    width: 26%;
+    padding-top: 40px;
+    position: relative;
+}
+.project-intro .tabs-head-items{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+}
+.project-intro .tabs-head-items span{
+    display: inline-block;
+    padding: 10px 10px;
+    background: white;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: rgb(225, 225, 225);
+    -webkit-box-shadow: 0px 0px 10px rgba(225, 225, 225, .7);
+    box-shadow: 0px 0px 10px rgba(225, 225, 225, .7);
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    margin-left: 15px;
+}
+.project-intro .tabs-head-items span img{
+    width: 22px;
+}
+.project-intro .tabs-head-items span.active{
+    background: #f5f5f5;
+    border-color: #f5f5f5;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.meet-project-map .project-intro .tabs-body-items{
+    height: 100%;
+    width: 100%;
+    background: #f5f5f5;
+    padding: 8px;
+    border-radius: 5px;
+    position: relative;
+}
+.project-intro .tabs-body-items .content{
+    height: 100%;
+    width: 100%;
+    background: white;
+    border-radius: 5px;
+    position: relative;
+    padding: 10px;
+}
+.project-intro .tabs-body-items .items{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: none;
+    font-size: 14px;
+    color: #666;
+}
+
+.project-list{
+    padding: 20px 30px;
+}
+
+.project-list .project-tree{
+    font-size: 14px;
+    color: #003399;
+    padding: 20px 2% 20px 0;
+    overflow-y: auto;
+}
+
+.project-list .list-content{
+    width: 83%;
+    padding: 20px;
+    height: 100%;
+    overflow: auto;
+}
+
+
+.list-content .item{
+    display: inline-block;
+    margin-top: 20px;
+    width: 25.36%;
+    max-width: 315px;
+    vertical-align: top;
+}
+.list-content .item:nth-child(3n-1){
+    margin-left: 11.93%;
+    margin-right: 11.93%;
+}
+.list-content .imgs{
+    background-color: white;
+    width: 100%;
+    padding: 8px 15px;
+    -webkit-box-shadow: 0px 0px 5px rgba(200, 200, 200, .8);
+    box-shadow: 0px 0px 5px rgba(200, 200, 200, .8);
+    position: relative;
+    z-index: 50;
+    border: 1px solid #efefef;
+}
+.list-content .imgs .t1{
+    position: relative;
+    width: 100%;
+    padding-top: 68.21%;
+    display: block;
+}
+.list-content .imgs img{
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.list-content .name{
+    font-size: 14px;
+    color: #616161;
+    text-align: left;
+    margin: 8px 0;
+    padding: 0 60px 0 0;
+    position: relative;
+}
+.list-content .name .t3{
+    overflow: hidden;
+    width: 100%;
+    height: 22px;
+    line-height: 22px;
+    display: inline-block;
+}
+.list-content .name .map-btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    margin: 0;
+    width: 59px;
+    height: 22px;
+    line-height: 22px;
+    background: url(../images/download-bg.png) no-repeat center;
+    color: white;
+}
