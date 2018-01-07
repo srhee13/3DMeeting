@@ -2,6 +2,8 @@ package com.szpl.controller;
 
 import com.szpl.pojo.Theme;
 import com.szpl.service.ThemeService;
+import com.szpl.util.QueryPage;
+import com.szpl.util.StrUtil;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
@@ -39,5 +41,9 @@ public class ThemeRest {
         return themeService.findThemeById(id);
     }
 
-
+    @ResponseBody
+    @RequestMapping(value = "/find/{name}/{pageNum}/{pageSize}",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
+    public QueryPage<Theme> findThemes(@PathVariable("name") String meetName,@PathVariable String pageNum,@PathVariable String pageSize){
+        return themeService.findThemes(meetName,pageNum,pageSize);
+    }
 }

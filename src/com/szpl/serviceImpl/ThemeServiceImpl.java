@@ -3,10 +3,15 @@ package com.szpl.serviceImpl;
 import com.szpl.dao.ThemeDao;
 import com.szpl.pojo.Theme;
 import com.szpl.service.ThemeService;
+import com.szpl.util.PageUtil;
+import com.szpl.util.QueryPage;
 import com.szpl.util.StrUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
 
 /**
  * Created by litao on 2017/12/29.
@@ -23,6 +28,22 @@ public class ThemeServiceImpl implements ThemeService {
 
     public void setThemeDao(ThemeDao themeDao) {
         this.themeDao = themeDao;
+    }
+
+    @Override
+    public QueryPage<Theme> findThemes(String meetName, String pageNum,String pageSize) {
+        Page<Theme> pages = new PageImpl<Theme>(new ArrayList<Theme>());
+        if(StrUtil.isNull(meetName)){
+            return PageUtil.toQueryPage(pages);
+        }
+        Integer num = Integer.parseInt(pageNum);
+        Integer size = Integer.parseInt(pageSize);
+        if(num<0||size<0){
+            return PageUtil.toQueryPage(pages);
+        }
+        Pageable pageable = new PageRequest(num,size);
+        pages = themeDao.findThemes(meetName,pageable);
+        return PageUtil.toQueryPage(pages);
     }
 
     @Override
