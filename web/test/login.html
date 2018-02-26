@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>用户注册</title>
+    <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrapValidator.css">
+    <script type="application/javascript" src="../js/jquery-1.12.4.min.js"></script>
+    <script type="application/javascript" src="../bootstrap/js/bootstrap.js"></script>
+    <script type="application/javascript" src="../bootstrap/js/bootstrapValidator.js"></script>
+</head>
+<body>
+<form action="../user/add" class="form-horizontal" id="registerForm">
+    <div class="form-group">
+        <label class="col-lg-3 control-label">用户名</label>
+        <div class="col-lg-6">
+            <input type="text" class="form-control" name="username" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-3 control-label">密码</label>
+        <div class="col-lg-6">
+            <input type="password" class="form-control" name="password"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-3 control-label"> 密码重复：</label>
+        <div class="col-lg-6">
+            <input type="password" name="confirm" id="txtConfirm" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-3 control-label">姓名</label>
+        <div class="col-lg-6">
+            <input type="text" class="form-control" name="name"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-3 control-label">电话</label>
+        <div class="col-lg-6">
+            <input type="text" class="form-control" name="phoneNum"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-3 control-label"></label>
+        <div class="col-lg-6">
+            <button type="submit" id="btnRegister" class="btn btn-primary">注册</button>
+        </div>
+    </div>
+</form>
+</body>
+<script>
+    $('#registerForm').bootstrapValidator({
+        message: '这个值没有被验证',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                message: '用户名还没有验证',
+                threshold :  6 , //有6字符以上才发送ajax请求，（input中输入一个字符，插件会向服务器发送一次，设置限制，6字符以上才开始）
+                validators: {
+                    notEmpty: {
+                        message: '用户名不能为空'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 10,
+                        message: '用户名长度在6到10位之间'
+                    },
+                    remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}
+                        url: '../user/validate/',//验证地址
+                        message: '用户名已存在',//提示消息
+                        delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                        type: 'POST',//请求方式
+                        //自定义提交数据，默认值提交当前input value
+                        data: function(validator) {
+                           return {
+                               userName: $('[name="username"]').val()
+                           };
+                        }
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: '用户名由数字字母下划线和.组成'
+                    }
+                }
+            },
+            password: {
+                message: '密码还没有验证',
+                validators: {
+                    notEmpty: {
+                        message: '密码不能为空'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 16,
+                        message: '密码长度在6到16之间'
+                    },
+                    different: {
+                        field: 'username',
+                        message: '密码不能和用户名相同'
+                    },
+                    identical: {//相同
+                        field: 'confirm', //需要进行比较的input name值
+                        message: '两次密码不一致'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: '密码由数字字母下划线和.组成'
+                    }
+                }
+            },
+            confirm: {
+                message: '密码重复还没有验证',
+                validators: {
+                    notEmpty: {
+                        message: '密码重复不能为空'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 16,
+                        message: '密码长度在6到16之间'
+                    },
+                    different: {
+                        field: 'username',
+                        message: '密码不能和用户名相同'
+                    },
+                    identical: {
+                        field: 'password',
+                        message: '两次密码不一致'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: '密码由数字字母下划线和.组成'
+                    }
+                }
+            },
+            name:{
+                message: '姓名还没有验证',
+                validators: {
+                    notEmpty: {
+                        message: '姓名不能为空'
+                    },
+                    stringLength: {
+                        min: 2,
+                        max: 10,
+                        message: '姓名长度在6到10位之间'
+                    },
+                    regexp: {
+                        regexp: /^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/ ,
+                        message: '中文姓名包括英译中文名'
+                    }
+                }
+            },
+            phoneNum:{
+                message: '手机号码还没有验证',
+                threshold :  11 ,
+                validators:{
+                    notEmpty: {
+                        message: '手机号码不能为空'
+                    },
+                    stringLength: {
+                        min: 11,
+                        max: 11,
+                        message: '手机号码长度必须为11位'
+                    },
+                    regexp: {
+                        regexp: /^1[34578]\d{9}$/,
+                        message: '11位不带区号手机号码'
+                    },
+                    remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}
+                        url: '../user/validate/phoneNum',//验证地址
+                        message: '用户名已存在',//提示消息
+                        delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                        type: 'POST',//请求方式
+                        //自定义提交数据，默认值提交当前input value
+                        data: function(validator) {
+                            return {
+                                phoneNum: $('[name="phoneNum"]').val()
+                            };
+                        }
+                    },
+                }
+            }
+        }
+    }).on('success.form.bv', function (e) {
+        // Prevent form submission
+        e.preventDefault();
+        // Get the form instance
+        var $form = $(e.target);
+        // Get the BootstrapValidator instance
+        var bv = $form.data('bootstrapValidator');
+        // Use Ajax to submit form data
+        $.post("/Account/Register", $form.serialize(), function (data) {
+            console.log(data)
+            if (data.Status == "ok") {
+                window.location.href = "/Home/Index";
+            }
+            else if (data.Status == "error") {
+                alert(data.Message);
+            }
+            else {
+                alert("未知错误");
+            }
+        });
+    });
+</script>
+</html>

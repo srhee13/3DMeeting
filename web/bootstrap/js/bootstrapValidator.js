@@ -445,6 +445,8 @@
          */
         getFieldElements: function(field) {
             var fields = this.options.fields[field].selector ? $(this.options.fields[field].selector) : this.$form.find('[name="' + field + '"]');
+            //by lish
+            //var fields = this.options.fields[field][selector] ? $(this.options.fields[field][selector]) : this.$form.find('[name="' + field + '"]');
             return (fields.length == 0) ? null : fields;
         },
 
