@@ -26,7 +26,7 @@ public class User {
     /**
      * 用户密码
      */
-    @Column(unique = true,nullable = false,length = 50)
+    @Column(nullable = false,length = 50)
     private String password;
     /**
      * 姓名
@@ -42,7 +42,7 @@ public class User {
      * 创建日期
      */
     @Temporal(TemporalType.DATE)
-    private Date registerDate;
+    private Date registerDate = new Date();
     /**
      * 用户类型，当前是枚举，ADMIN是管理员，common是普通用户
      */

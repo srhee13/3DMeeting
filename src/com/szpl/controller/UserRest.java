@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.szpl.pojo.User;
 import com.szpl.service.UserService;
+import com.szpl.util.QueryPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +39,7 @@ public class UserRest {
         return validate("phoneNum",phoneNum);
     }
     @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public @ResponseBody  boolean addUser(@RequestBody User user){
+    public @ResponseBody  boolean addUser(@ModelAttribute("user") User user){
         try{
             userService.registerUser(user);
         }catch (Exception e){
@@ -69,5 +70,12 @@ public class UserRest {
             e.printStackTrace();
         }
         return resultString;
+    }
+
+    @RequestMapping(value = "/getUserPages/{userName}/{phoneNum}/{type}",method = RequestMethod.GET,produces = "application/json;charset=UTF-8")
+    public @ResponseBody QueryPage<User> getUserPages(@PathVariable String userName,@PathVariable String phoneNum,
+                                                      @PathVariable String type,@RequestParam int pageSize,
+                                                      @RequestParam int pageNum){
+        return userService.getUserPages(userName,phoneNum,type,pageSize,pageNum);
     }
 }

@@ -9,15 +9,16 @@
     <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrapValidator.css">
     <script type="application/javascript" src="../js/jquery-1.12.4.min.js"></script>
+    <script type="application/javascript" src="../js/jquery.form.js"></script>
     <script type="application/javascript" src="../bootstrap/js/bootstrap.js"></script>
     <script type="application/javascript" src="../bootstrap/js/bootstrapValidator.js"></script>
 </head>
 <body>
-<form action="../user/add" class="form-horizontal" id="registerForm">
+<form action="../user/add" class="form-horizontal" modelAttribute="user" id="registerForm" method="post" onsubmit="return subUser();">
     <div class="form-group">
         <label class="col-lg-3 control-label">用户名</label>
         <div class="col-lg-6">
-            <input type="text" class="form-control" name="username" />
+            <input type="text" class="form-control" name="userName" />
         </div>
     </div>
     <div class="form-group">
@@ -61,7 +62,7 @@
             validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
-            username: {
+            userName: {
                 message: '用户名还没有验证',
                 threshold :  6 , //有6字符以上才发送ajax请求，（input中输入一个字符，插件会向服务器发送一次，设置限制，6字符以上才开始）
                 validators: {
@@ -74,14 +75,14 @@
                         message: '用户名长度在6到10位之间'
                     },
                     remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}
-                        url: '../user/validate/',//验证地址
+                        url: '../user/validate/userName',//验证地址
                         message: '用户名已存在',//提示消息
                         delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
                         type: 'POST',//请求方式
                         //自定义提交数据，默认值提交当前input value
                         data: function(validator) {
                            return {
-                               userName: $('[name="username"]').val()
+                               userName: $('[name="userName"]').val()
                            };
                         }
                     },
@@ -103,12 +104,8 @@
                         message: '密码长度在6到16之间'
                     },
                     different: {
-                        field: 'username',
+                        field: 'userName',
                         message: '密码不能和用户名相同'
-                    },
-                    identical: {//相同
-                        field: 'confirm', //需要进行比较的input name值
-                        message: '两次密码不一致'
                     },
                     regexp: {
                         regexp: /^[a-zA-Z0-9_\.]+$/,
@@ -128,7 +125,7 @@
                         message: '密码长度在6到16之间'
                     },
                     different: {
-                        field: 'username',
+                        field: 'userName',
                         message: '密码不能和用户名相同'
                     },
                     identical: {
@@ -176,7 +173,7 @@
                     },
                     remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}
                         url: '../user/validate/phoneNum',//验证地址
-                        message: '用户名已存在',//提示消息
+                        message: '手机号码已存在',//提示消息
                         delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
                         type: 'POST',//请求方式
                         //自定义提交数据，默认值提交当前input value
@@ -198,7 +195,7 @@
         var bv = $form.data('bootstrapValidator');
         // Use Ajax to submit form data
         $.post("/Account/Register", $form.serialize(), function (data) {
-            console.log(data)
+            console.log(data);
             if (data.Status == "ok") {
                 window.location.href = "/Home/Index";
             }
@@ -210,5 +207,17 @@
             }
         });
     });
+
+    function subUser(){
+        // jquery 表单提交
+        $("#registerForm").ajaxSubmit(function(message) {
+            if(message){
+                alert("注册成功！");
+            }else {
+                alert("注册失败!");
+            }
+        });
+        return false; // 必须返回false，否则表单会自己再做一次提交操作，并且页面跳转
+    }
 </script>
 </html>

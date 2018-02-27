@@ -1,6 +1,7 @@
 package com.szpl.service;
 
 import com.szpl.pojo.User;
+import com.szpl.util.QueryPage;
 
 /**
  * @Author: lish.
@@ -29,4 +30,6 @@ public interface UserService {
      * @return
      */
     public boolean validatePhoneNum(String phoneNum);
+
+    public QueryPage<User> getUserPages(String userName, String phoneNum, String type,int pageSize,int pageNum);
 }
